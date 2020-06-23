@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="my_project1.css" type="text/css">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <title>Loan Rate Predictor</title>
+
+<style>
+body {
+  background-image: url('/static/edu.jpg');
+   background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+</style>
+</head>
+<body>
+
+<h1 style="background-color:DodgerBlue;">At your comfort, Know your Loan Interest Level!</h1>
+
+<div class="form-group">
+
+    <form action="/result" method="POST">
+        <b><label style="color:green;" for="Loan_Amount_Requested"> Amount of Loan</label></b>
+        <br>
+        <input  type="text" id="Loan_Amount_Requested" name="Loan_Amount_Requested" placeholder="Amount of Loan"  class="form-control form-control-sm">
+        <br>
+        <b> <label style="color:green;" for="Annual_Income">Annual Income</label></b>
+        <br>
+        <input style="color:green;" type="text" id="Annual_Income" name="Annual_Income" placeholder="Annual Income"  class="form-control form-control-sm">
+        <br>
+        <b> <label style="color:green;" for="Debt_To_Income">Debt to Income ratio(total monthly debt/ total monthly income)*100.(value between 0-100)</label></b>
+        <br>
+        <input type="text" id="Debt_To_Income" name="Debt_To_Income" placeholder="(between 0-100)"  class="form-control form-control-sm">
+        <br>
+        <b><label style="color:green;" for="Inquiries_Last_6Mo">Inquiries Since the  last six months</label></b>
+        <br>
+        <input type="text" id="Inquiries_Last_6Mo" name="Inquiries_Last_6Mo" placeholder="Loan Inquiries For the past 6 months(between 0-100)"  class="form-control form-control-sm">
+        <br>
+        <b><label style="color:green;" for="Months_Since_Deliquency">When last did you miss your loan payment date? Count the number of months up till today's date</label></b>
+        <input type="text" id="Months_Since_Deliquency" name="Months_Since_Deliquency" placeholder="value between 0-100"  class="form-control form-control-sm">
+        <br>
+        <b><label style="color:green;" for="Total_Accounts"> Total Number of bank Accounts</label></b>
+        <br>
+        <input type="text" id="Total_Accounts" name="Total_Accounts" placeholder="Total number of bank Accounts"  class="form-control form-control-sm">
+        <br>
+
+        <b><label style="color:green;" for="Length_Employed"> How long have you been Employed?</label></b>
+        <br>
+        <select id="Length_Employed" name="Length_Employed"  class="form-control form-control-sm">
+            <option value="0">1 year</option>
+            <option value="1">10+ years</option>
+            <option value="2">2 years</option>
+            <option value="3">3 years</option>
+            <option value="4">4 years</option>
+            <option value="5">5 years</option>
+            <option value="6">6 years</option>
+            <option value="7">7 years</option>
+            <option value="8">8 years</option>
+            <option value="9">9 years</option>
+            <option value="10">< 1 year</option>
+            <option value="11">None</option>
+        </select>
+
+        <br>
+        <b><label style="color:green;" for="Home_Owner"> Home Owner</label></b>
+        <select id="Home_Owner" name="Home_Length"  class="form-control form-control-sm">
+            <option value="0">Mortgage </option>
+            <option value="1">None</option>
+            <option value="2">Other</option>
+            <option value="3">Own</option>
+            <option value="4">Rent</option>
+        </select>
+        <br>
+       <b><label style="color:green;" for="Income_Verified">Is your income Verified by the bank?</label></b>
+        <select id="Income_Verified" name="Income_Verified"  class="form-control form-control-sm">
+            <option value="0">Verified-Income </option>
+            <option value="1">Verified-Income-Source</option>
+            <option value="0">Not-Verified </option>
+        </select>
+        <br>
+        <b><label style="color:green;" for="Purpose_Of_Loan"> Purpose of Loan</label></b>
+        <select id="Purpose_Of_Loan", name="Purpose_Of_Loan" class="form-control form-control-sm">
+            <option value="0"> Car</option>
+            <option value="1">Credit-card </option>
+            <option value="2">debt-consolidation</option>
+            <option value="3">Education</option>
+            <option value="4">Home-improvement</option>
+            <option value="5">House-Purchase</option>
+            <option value="6">Major-Purchase</option>
+            <option value="7">Medical</option>
+            <option value="8">Moving-or-Relocation</option>
+            <option value="9">Others</option>
+            <option value="10">Renewable-energy</option>
+            <option value="11">small-business</option>
+            <option value="12">Vacation</option>
+            <option value="13">Wedding</option>
+        </select>
+        <br>
+        <b><label style="color:green;" for="Gender"> Gender</label></b>
+        <select id="Gender" name="Gender" class="form-control form-control-sm">
+            <option value="0"> Female</option>
+            <option value="1" >Male</option>>
+        </select>
+        <br>
+        <input type="submit" class="btn btn-primary" value="Submit" >
+    </form>
+</div>
+</body>
+</html>

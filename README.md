@@ -1,2 +1,1 @@
-# lgbm1_predictor
-This websites ppredicts loans
+This  is just a website that predicts loan interest level
